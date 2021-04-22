@@ -2,6 +2,7 @@ package com.shchmax;
 
 import com.shchmax.Frac;
 import java.util.ArrayList;
+import java.lang.StringBuilder;
 
 public class Serie {
     private ArrayList<Frac> fracs;
@@ -45,6 +46,10 @@ public class Serie {
         return this.fracs.get(i);
     }
 
+    public void add(Frac s) {
+        this.fracs.add(s);
+    }
+
     public void set(int i, Frac s) {
         this.fracs.set(i, s);
     }
@@ -73,9 +78,18 @@ public class Serie {
     }
 
     public void print() {
+        StringBuilder numerator = new StringBuilder();
+        StringBuilder minus = new StringBuilder();
+        StringBuilder denominator = new StringBuilder();
         for (Frac p : this.fracs) {
-            p.print();
+            p.print(numerator, minus, denominator);
+            numerator.append("   ");
+            minus.append("   ");
+            denominator.append("   ");
         }
+        System.out.println(numerator);
+        System.out.println(minus);
+        System.out.println(denominator);
         System.out.println();
     }
 }

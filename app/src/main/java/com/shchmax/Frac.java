@@ -1,6 +1,7 @@
 package com.shchmax;
 
 import java.math.BigInteger;
+import java.lang.StringBuilder;
 
 public class Frac {
     private BigInteger num = BigInteger.ZERO; // numerator
@@ -39,6 +40,23 @@ public class Frac {
         }
         System.out.println(denominator);
         System.out.println();
+    }
+
+    public void print(StringBuilder numerator, StringBuilder minus, StringBuilder denominator) {
+        String numm = num.toString();
+        String denn = den.toString();
+        int sz = Math.max(numm.length(), denn.length());
+        for (int i = 0; i < sz - numm.length(); ++i) {
+            numerator.append(" ");
+        }
+        numerator.append(numm);
+        for (int i = 0; i < sz; ++i) {
+            minus.append("-");
+        }
+        for (int i = 0; i < sz - denn.length(); ++i) {
+            denominator.append(" ");
+        }
+        denominator.append(denn);
     }
 
     public Frac negate() {
