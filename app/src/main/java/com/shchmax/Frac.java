@@ -3,8 +3,10 @@ package com.shchmax;
 import java.math.BigInteger;
 
 public class Frac {
-    private BigInteger num = BigInteger.ONE; // numerator
+    private BigInteger num = BigInteger.ZERO; // numerator
     private BigInteger den = BigInteger.ONE; // denominator
+
+    public Frac() {}
 
     public Frac(BigInteger num, BigInteger den) {
         BigInteger gcd = num.gcd(den);
